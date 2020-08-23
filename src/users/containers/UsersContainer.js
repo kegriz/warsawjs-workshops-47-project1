@@ -1,21 +1,16 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import UsersList from "../components/UsersList";
 
-class UsersContainer extends Component {
-  state = {
-    // users: [],
-  };
+function UsersContainer() {
+  const [users, setUsers] = useState([]);
 
-  componentDidMount() {
+  useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
-      .then((data) => this.setState({ users: data }));
-  }
+      .then((data) => setUsers(data));
+  });
 
-  render() {
-    const { users } = this.state;
-    return <div className="UsersContainer">{users ? <UsersList users={users} /> : "ładowanie"}</div>;
-  }
+  return <div className="UsersContainer">{users ? <UsersList users={users} /> : "ładowanie"}</div>;
 }
 
 export default UsersContainer;
