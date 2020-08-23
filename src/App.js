@@ -1,4 +1,5 @@
 import React from "react";
+import UsersContainer from "./users/containers/UsersContainer"
 
 function Button(props) { // {color, text} - destrukturyzacja
   console.log(props);
@@ -19,6 +20,8 @@ function App() {
   return (
     <div className="App">
       <Button color="blue" text="Hello" />
+
+      <UsersContainer />
     </div>
   );
 }
