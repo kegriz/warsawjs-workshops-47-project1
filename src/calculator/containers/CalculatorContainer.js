@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Select from "../components/Select"
 
 class CalculatorContainer extends Component {
   // jeśli nie użyjemy f strzałkowej:
@@ -36,14 +37,7 @@ class CalculatorContainer extends Component {
         <form onSubmit={this.handleSubmit}>
           <input name="amount" type="number" placeholder="Amount" value={amount} onChange={this.handleChange} />
 
-          <select name="base" onChange={this.handleChange} value={base}>
-            <option value="GBP">GBP</option>
-            <option value="HKD">HKD</option>
-            <option value="IDR">IDR</option>
-            <option value="ILS">ILS</option>
-            <option value="PLN">PLN</option>
-            <option value="USD">USD</option>
-          </select>
+          <Select name="base" handleChange={this.handleChange} value={base}/>
 
           <select name="currency" onChange={this.handleChange} value={currency}>
             <option value="GBP">GBP</option>
