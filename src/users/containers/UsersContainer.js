@@ -8,7 +8,7 @@ function UsersContainer() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
-  });
+  }, []);
 
   return <div className="UsersContainer">{users ? <UsersList users={users} /> : "ładowanie"}</div>;
 }
